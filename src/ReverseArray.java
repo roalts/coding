@@ -21,7 +21,6 @@ public class ReverseArray {
 	public static void printArray(int[] input){
 		for(int i=0; i<input.length; i++){
 			System.out.print(input[i]+"\t");
-
 		}
 		System.out.print("\n");
 	}
@@ -35,12 +34,5 @@ public class ReverseArray {
 			userInput[j]=temp;
 			printArray(userInput);
 		}
-
-
-
-
 	}
-
-
-
 }
