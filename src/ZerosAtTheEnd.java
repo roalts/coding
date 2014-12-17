@@ -28,34 +28,33 @@ public class ZerosAtTheEnd {
 	public static int[] zerosAtEnd(int[] input){
 		
 		int temp;
-		int[] newArray = new int[input.length];
 		for(int i=0; i<input.length; i++){
 			if(input[i]==0){
 				temp=input[i];
-				for(int j=i+1, k=i; j<=input.length-1; j++){
+				for(int j=i+1; j<=input.length-1; j++){
 
 					
-					newArray[k++]=input[j];
+					input[j-1]=input[j];
 					
 
 				}
-				newArray[input.length-1]=temp;
+				input[input.length-1]=temp;
 				
-				//printArray(input);
 			}
-			else
-				newArray[i]=input[i];
 		}
-		
-		return newArray;
+		return input;
 	}
 
 	public static void main(String[] args){
 
 		int[] userInput = takeInput();
-		//printArray(userInput);
-		int[] output=zerosAtEnd(userInput);
-		printArray(output);
+		
+		userInput=zerosAtEnd(userInput);
+		userInput=zerosAtEnd(userInput);
+		userInput=zerosAtEnd(userInput);
+		userInput=zerosAtEnd(userInput);
+
+		printArray(userInput);
 
 	}
 
