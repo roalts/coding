@@ -11,7 +11,6 @@ public class StringDuplicates {
 					s = s+ input.charAt(i);
 					i++;
 				}
-
 				else
 					s= s + input.charAt(i);
 			}

@@ -26,21 +26,29 @@ public class ZerosAtTheEnd {
 		System.out.print("\n");
 	}
 	public static int[] zerosAtEnd(int[] input){
-		
-		int temp;
-		for(int i=0; i<input.length; i++){
+
+		int temp, i=0;;
+		while(i<input.length){
+
 			if(input[i]==0){
 				temp=input[i];
 				for(int j=i+1; j<=input.length-1; j++){
 
-					
+
 					input[j-1]=input[j];
-					
+
 
 				}
 				input[input.length-1]=temp;
-				
+				if(i==input.length-1){
+					break;
+				}
+
 			}
+			else
+				i++;
+
+
 		}
 		return input;
 	}
@@ -48,10 +56,7 @@ public class ZerosAtTheEnd {
 	public static void main(String[] args){
 
 		int[] userInput = takeInput();
-		
-		userInput=zerosAtEnd(userInput);
-		userInput=zerosAtEnd(userInput);
-		userInput=zerosAtEnd(userInput);
+
 		userInput=zerosAtEnd(userInput);
 
 		printArray(userInput);
