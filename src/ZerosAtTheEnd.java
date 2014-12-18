@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-
 public class ZerosAtTheEnd {
+
 
 	public static int[] takeInput(){
 
@@ -25,42 +25,36 @@ public class ZerosAtTheEnd {
 		}
 		System.out.print("\n");
 	}
-	public static int[] zerosAtEnd(int[] input){
 
-		int temp, i=0;;
-		while(i<input.length){
+	public static void zerosAtEnd(int[] input){
 
-			if(input[i]==0){
-				temp=input[i];
-				for(int j=i+1; j<=input.length-1; j++){
+		int temp;
 
+		for(int i=0; i<input.length; i++){
 
-					input[j-1]=input[j];
-
-
+			for(int j=0; j<input.length-1; j++){
+				if(input[j]==0&&input[j+1]!=0)
+				{
+					temp = input[j];
+					input[j]=input[j+1];
+					input[j+1]=temp;
 				}
-				input[input.length-1]=temp;
-				if(i==input.length-1){
-					break;
-				}
-
+				
+				printArray(input);
 			}
-			else
-				i++;
-
-
 		}
-		return input;
+		
 	}
 
 	public static void main(String[] args){
 
 		int[] userInput = takeInput();
-
-		userInput=zerosAtEnd(userInput);
-
+		//printArray(userInput);
+		zerosAtEnd(userInput);
 		printArray(userInput);
 
-	}
+		
 
+	}
 }
+

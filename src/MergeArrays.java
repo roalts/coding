@@ -42,11 +42,13 @@ public class MergeArrays {
 				else
 					mergedArray[k++]=array1[i++];
 
-				//			while(i<array1.length)
-				//				mergedArray[k++]=array1[i++];
-				//			while(j<array2.length)
-				//				mergedArray[k++]=array2[j++];
-				//			
+				if(j==array2.length)
+							while(i<array1.length)
+								mergedArray[k++]=array1[i++];
+				if(i==array1.length)
+							while(j<array2.length)
+								mergedArray[k++]=array2[j++];
+							
 			}
 
 

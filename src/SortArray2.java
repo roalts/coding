@@ -3,10 +3,9 @@ import java.util.Scanner;
 
 
 public class SortArray2 {
-	
+
 	int ones;
 	public static int[] takeInput(){
-
 		Scanner s = new Scanner(System.in);
 
 		int size = s.nextInt();
@@ -27,32 +26,32 @@ public class SortArray2 {
 		}
 		System.out.print("\n");
 	}
-	public static int[] sortArray(int[] input){
-		int[] sortedArray = new int[input.length];
-		int k=0,j=input.length-1, l=k;
-		for(int i=0; i<input.length; i++){
-			if(input[i]==0){
-				sortedArray[k++]=input[i];
-				l=k;
+	public static void sortArray(int[] input){
+		int i = 0, j=input.length-1, temp;
+		while(i<j){
+			if(input[i]>input[j]){
+				temp = input[i];
+				input[i]=input[j];
+				input[j]=temp;
+
+				if(input[i]==2){
+					i++;
+				}
+				else if(input[j]==0){
+					j--;
+				}
+
+
 			}
-			else if(input[i]==1){
-				
-				input[l++]=input[i];
-			}
-			else
-				sortedArray[j--]=input[i];
+
 		}
-		return sortedArray;
-
-
-
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		int[] userInput=takeInput();
-		int[] output = sortArray(userInput);
-		printArray(output);
+		sortArray(userInput);
+		printArray(userInput);
 	}
 
 }

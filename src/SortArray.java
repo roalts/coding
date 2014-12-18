@@ -26,27 +26,31 @@ public class SortArray {
 		System.out.print("\n");
 	}
 	
-	public static int[] sortArray(int[] input){
-		int[] sortedArray = new int[input.length];
-		int k=0,j=input.length-1;
-		for(int i=0; i<input.length; i++){
-			if(input[i]==0){
-				sortedArray[k++]=input[i];
+	public static void sortArray(int[] input){
+		
+		int i = 0, j=input.length-1, temp;
+		while(i<j){
+			if(input[i]>input[j]){
+				temp = input[i];
+				input[i]=input[j];
+				input[j]=temp;
+				i++;
+				j--;
 			}
-			else
-				sortedArray[j--]=input[i];
+			else if(input[i]==0){
+				i++;
+			}
+			else if(input[j]==1){
+				j--;
+			}
 		}
-		return sortedArray;
-		
-		
-	
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		int[] userInput=takeInput();
-		int[] output = sortArray(userInput);
-		printArray(output);
+		sortArray(userInput);
+		printArray(userInput);
 	}
 
 }
