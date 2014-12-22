@@ -4,30 +4,22 @@ package assignmentRecursion2;
 //Q6. Given an array find all subsets of A which sum to K.
 public class SumOfSubsetsofArray {
 
-	public static int sumSubset(int[] input, int number, int beginIndex){
-		
-		if(beginIndex == input.length){
-			return 0;
+	public static void sumSubset(int[] input, int number, int beginIndex, int sum){
+
+		if(sum == number){
+			System.out.print("YO");
+			return;
 		}
-//		if(input[beginIndex] == number )
-//			System.out.print(input[beginIndex]);
-		for(int i = beginIndex; i<input.length; i++){
-			
-			if(number == input[i] + sumSubset(input, number, beginIndex+1)){
-				System.out.print(input[i]);
-			}
+		if(sum<number){
+			for(int i = beginIndex; i<input.length; i++)
+				sumSubset(input, number, beginIndex+1, sum + input[i]);
+				sumSubset(input, number, beginIndex+1, sum + input[beginIndex]);
 		}
-		return 0;
-		
+		return;
 	}
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		int[] input = {1,2,3,4,5,6,7};
-		sumSubset(input, 7, 0 );
-		
-		
+		int[] input = {3,5,4,4};
+		sumSubset(input, 8, 0,0 );
 	}
-
 }
