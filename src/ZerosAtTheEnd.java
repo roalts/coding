@@ -25,7 +25,23 @@ public class ZerosAtTheEnd {
 		}
 		System.out.print("\n");
 	}
-
+	public static void pushZeros(int[] input){
+		int i=0;
+		int currentElementIndex = 0;
+		while(currentElementIndex < input.length){
+			if(input[currentElementIndex] == 0)
+				currentElementIndex++;
+			else{
+				input[i] = input[currentElementIndex];
+				i++;
+				currentElementIndex++;
+			}
+		}
+		while(i < input.length){
+			input[i] = 0;
+			i++;
+		}
+	}
 	public static void zerosAtEnd(int[] input){
 
 		int temp;
@@ -49,8 +65,8 @@ public class ZerosAtTheEnd {
 	public static void main(String[] args){
 
 		int[] userInput = takeInput();
-		//printArray(userInput);
-		zerosAtEnd(userInput);
+		printArray(userInput);
+		pushZeros(userInput);
 		printArray(userInput);
 
 		
