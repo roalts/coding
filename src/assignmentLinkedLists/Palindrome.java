@@ -16,9 +16,9 @@ public class Palindrome {
 		if(head.data == tail.data){
 			 return checkPalindrome(head.next, noOfElements-2);
 		}
-
 		return false;
 	}
+	
 	public static Node takeInput(){
 		Node head = null, tail = null;
 		Scanner s = new Scanner(System.in);

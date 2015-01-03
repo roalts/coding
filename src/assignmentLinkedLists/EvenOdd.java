@@ -8,7 +8,7 @@ public class EvenOdd {
 	public static Node evenOdd(Node head){
 		Node tail = head, previous = null;
 		while(tail != null){
-			if(tail.data % 2 == 0){
+			if(tail.data % 2 != 0){
 				Node temp = tail, t = tail;
 				if(tail != head){
 					previous.next = t.next;
@@ -31,6 +31,7 @@ public class EvenOdd {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
 
 		Node head = Merge.takeInput();
 		head = evenOdd(head);
