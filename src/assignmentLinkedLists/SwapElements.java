@@ -44,10 +44,10 @@ public class SwapElements {
 		// TODO Auto-generated method stub
 
 		Node head = InsertDelete.takeInput();
-		InsertDelete.printLL(head);
+		//InsertDelete.printLL(head);
 		System.out.println();
-		head = swap(head, 2, 4);
-		InsertDelete.printLL(head);
+		head = swap(head, 1, 2);
+		Merge.printLL(head);
 	}
 
 }

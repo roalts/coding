@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 public class MergeSort {
 
-	public static void mergeSort(Node head, Node tail){
-		if(head == tail)
-			return;
+	public static Node mergeSort(Node head){
+		
+		if(head.next == null )
+			return head;
 		int noOfElements = 0;
 		Node t = head;
-		while(t != tail){
+		while(t != null){
 			t = t.next;
 			noOfElements++;
 		} 
@@ -20,10 +21,13 @@ public class MergeSort {
 			mid = mid.next;
 			midElement--;
 		}
-		mergeSort(head, mid);
-		mergeSort(mid.next, tail);
-		head = merge(head, mid, tail);
-		printLL(head);
+		
+		Node list1 = mergeSort(mid.next);
+		mid.next = null;
+		Node list2 = mergeSort(head);
+		head = Merge.merge(list1, list2);
+		
+		return head;
 	}
 
 	public static void printLL(Node head){
@@ -32,47 +36,47 @@ public class MergeSort {
 			head = head.next;
 		}
 	}
-	public static Node merge(Node head, Node mid, Node tail){
-		Node list1 = head;
-		Node list2 = mid.next;
-		Node end = null, start = null;
-		mid = mid.next;
-		while(list1 != mid && list2 != null){
-			if(start == null){
-				if(list1.data > list2.data){
-					start = list2; 
-					end = list2;
-					list2 = list2.next;
-				} else {
-					start = list1;
-					end = list1;
-					list1 = list1.next;
-				}
-			} else {
-				if(list1.data > list2.data){
-					end.next = list2;
-					end = list2;
-					list2 = list2.next;
-				} else {
-					end.next = list1;
-					end = list1;
-					list1 = list1.next;
-				}
-			}
-		}
-			while( list1 != mid){
-				end.next = list1;
-				end = list1;
-				list1 = list1.next;
-			}
-			while(list2 != null){
-				end.next = list2;
-				end = list2;
-				list2 = list2.next;
-			}
-		
-		return start;
-	}
+//	public static Node merge(Node head, Node mid, Node tail){
+//		Node list1 = head;
+//		Node list2 = mid.next;
+//		Node end = null, start = null;
+//		mid = mid.next;
+//		while(list1 != mid && list2 != null){
+//			if(start == null){
+//				if(list1.data > list2.data){
+//					start = list2; 
+//					end = list2;
+//					list2 = list2.next;
+//				} else {
+//					start = list1;
+//					end = list1;
+//					list1 = list1.next;
+//				}
+//			} else {
+//				if(list1.data > list2.data){
+//					end.next = list2;
+//					end = list2;
+//					list2 = list2.next;
+//				} else {
+//					end.next = list1;
+//					end = list1;
+//					list1 = list1.next;
+//				}
+//			}
+//		}
+//			while( list1 != mid){
+//				end.next = list1;
+//				end = list1;
+//				list1 = list1.next;
+//			}
+//			while(list2 != null){
+//				end.next = list2;
+//				end = list2;
+//				list2 = list2.next;
+//			}
+//		
+//		return start;
+//	}
 	public static Node takeInput(){
 		Node head = null, tail = null;
 		Scanner s = new Scanner(System.in);
@@ -103,7 +107,8 @@ public class MergeSort {
 				while(tail.next != null){
 					tail = tail.next; 
 				}
-				mergeSort(head, tail);
+				head = mergeSort(head);
+				printLL(head);
 	}
 
 }

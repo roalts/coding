@@ -22,6 +22,7 @@ public class EvenOdd {
 					tail = tail.next;
 				}
 			} else{
+
 				previous = tail;
 				if(tail != null)
 					tail = tail.next;
