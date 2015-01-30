@@ -3,23 +3,27 @@ package assignmentBinaryTrees;
 import java.util.Scanner;
 
 public class BuildTreeUsingPreAndInOrder {
-
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		Scanner s = new Scanner(System.in);
 		int noOfElements = s.nextInt();
-		int[] preOrderArray = new int[noOfElements];
-		int[] inOrderArray = new int[noOfElements];
-		for(int i = 0; i < preOrderArray.length; i++){
-			preOrderArray[i] = s.nextInt();
-		}
-		for(int i = 0; i < inOrderArray.length; i++){
-			inOrderArray[i] = s.nextInt();
-		}
-		
-		
+		int[] preOrderArray = {1,2,4,5,3,6,7};
+		int[] inOrderArray = {4,2,5,1,6,3,7};
+//		
+//		int[] preOrderArray = new int[noOfElements];
+//		int[] inOrderArray = new int[noOfElements];
+//		for(int i = 0; i < preOrderArray.length; i++){
+//			preOrderArray[i] = s.nextInt();
+//		}
+//		for(int i = 0; i < inOrderArray.length; i++){
+//			inOrderArray[i] = s.nextInt();
+//		}
+//			
 	}
+	
 	
 	public static int binarySearch(int[] input,int begin, int end, int k){
 		
