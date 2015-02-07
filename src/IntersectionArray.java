@@ -145,10 +145,10 @@ public class IntersectionArray {
 		
 		long startTime = System.currentTimeMillis();
 		mergeSort(input1, 0, input1.length - 1);
-		int[] output = insertionArray(input1, input);
+		//int[] output = insertionArray(input1, input);
 		long endTime = System.currentTimeMillis();
 		long startTime1 = System.currentTimeMillis();
-		int[] output2 = insertionArray2(input1, input);
+		//int[] output2 = insertionArray2(input1, input);
 		long endTime2 = System.currentTimeMillis();
 		System.out.println("Time by merge sort " + (endTime - startTime));
 		System.out.println("Time by second method" + (endTime2 - startTime1));

@@ -27,16 +27,30 @@ public class BSTUse {
 		}
 		if(root.data < newElement){
 			root.right = addElement(root.right, newElement);
-
-
 		}
 		else {
 			root.left = addElement(root.left, newElement);
 
 		}
-
-
 		return root;
+
+
+	}
+	public static void addElement1(BSTNode<Integer> root, int newElement){
+
+		if(root == null){
+			root = new BSTNode<Integer>();
+			root.data = newElement;
+			return;
+		}
+		if(root.data < newElement){
+			root.right = addElement(root.right, newElement);
+		}
+		else {
+			root.left = addElement(root.left, newElement);
+
+		}
+		return;
 
 
 	}
@@ -75,13 +89,34 @@ public class BSTUse {
 			} 
 		} else if (root.data > elementToBeRemoved.data){
 
-			root = removeElement(root.left, elementToBeRemoved );
+			root.left = removeElement(root.left, elementToBeRemoved );
 
 		} else 
-			root = removeElement(root.right, elementToBeRemoved );
+			root.right = removeElement(root.right, elementToBeRemoved );
 
 
 		return root;
+
+	}
+	public static void removeElement1(BSTNode<Integer> root, BSTNode<Integer> elementToBeRemoved){
+
+		if(root == null){
+			return;
+		}
+		if(root == elementToBeRemoved){
+			if(root.left == null && root.right==null){
+				root = null;
+				return;
+			} 
+		} else if (root.data > elementToBeRemoved.data){
+
+			removeElement(root.left, elementToBeRemoved );
+
+		} else 
+			removeElement(root.right, elementToBeRemoved );
+
+
+		return;
 
 	}
 
@@ -105,13 +140,16 @@ public class BSTUse {
 
 
 		Scanner s = new Scanner(System.in);
-		int newElement = s.nextInt();
+		
 		BSTNode<Integer> root = takeInput();
 		//root = addElement(root, newElement);
+		int newElement = s.nextInt();
+		
 		BSTNode<Integer> elem = findElement(root, newElement);
-		root = removeElement(root, elem );
-
+		//root = removeElement(root, elem );
+		removeElement1(root, elem );
 		//	if(checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE)){
+		//addElement1(root, newElement);
 		BinaryTreeUse.printBinaryTree(root);
 		//}
 
